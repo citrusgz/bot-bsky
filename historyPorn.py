@@ -5,12 +5,11 @@ from bs4 import BeautifulSoup
 import os
 import time
 import json
+from dotenv import load_dotenv
 
-
-with open('credentials.json', 'r') as f:
-    credentials = json.load(f)
-BLUESKY_USERNAME = credentials['username']
-BLUESKY_PASSWORD = credentials['password']
+load_dotenv()
+BLUESKY_USERNAME = os.getenv('BLUESKY_USERNAME')
+BLUESKY_PASSWORD = os.getenv('BLUESKY_PASSWORD')
 LATEST_POST_FILE = 'latest_post.txt'
 
 def get_latest_post():
